@@ -1,6 +1,7 @@
 package tests;
 
 import data.LoginFormData;
+import data.PathToFile;
 import org.testng.annotations.Test;
 import steps.Steps;
 import steps.StepsAsserts;
@@ -24,7 +25,8 @@ public class TestCards extends BaseTest{
         steps.enterDataInLoginForm(password, email, domain);
         asserts.isSecondCardOpen();
 
-        steps.uploadAvatarChoseInterests();
+        int quantityOfInterests = 2;
+        steps.uploadAvatarChoseInterests(PathToFile.PATH.getPathToImage(), quantityOfInterests);
         asserts.isThirdCardOpen();
     }
 }

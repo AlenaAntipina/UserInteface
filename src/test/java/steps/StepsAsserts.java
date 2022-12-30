@@ -15,28 +15,20 @@ public class StepsAsserts {
 
     private SoftAssert softAssert;
 
-    @Deprecated
     public void isMainPageOpen(){
-        Assert.assertTrue(mainPage.isDisplayed(), "The main page is not opened.");
+        Assert.assertTrue(mainPage.state().isDisplayed(), "The main page is not opened.");
     }
 
     public void isFirstCardOpen(){
-        int expectedCardNumber = 1;
-        Assert.assertEquals(firstCard.getNumberOfCard(), expectedCardNumber, "The first card (login form) is not opened.");
+        Assert.assertTrue(firstCard.state().isDisplayed(), "The first card (login form) is not opened.");
     }
 
     public void isSecondCardOpen(){
-        int expectedCardNumber = 2;
-        Assert.assertEquals(secondCard.getNumberOfCard(), expectedCardNumber, "The second card (avatar and interests form) is not opened.");
+        Assert.assertTrue(secondCard.state().isDisplayed(), "The second card (avatar and interests form) is not opened.");
     }
 
     public void isThirdCardOpen(){
-        Assert.assertFalse(thirdCard.isThirdCardOpen(), "The third card (personal details) is not opened.");
-    }
-
-    @Deprecated
-    public void isNextPageOpen(){
-        Assert.assertTrue(firstCard.isDisplayed(), "The next page (login form) is not opened.");
+        Assert.assertTrue(thirdCard.state().isDisplayed(), "The third card (personal details) is not opened.");
     }
 
     public void isHelpFormHide(){
@@ -47,10 +39,9 @@ public class StepsAsserts {
         Assert.assertTrue(firstCard.isCookiesFormClosed(), "Cookies form is not closed");
     }
 
-    @Deprecated
     public void isTimerNull(){
         softAssert = new SoftAssert();
-        softAssert.assertTrue(firstCard.isDisplayed(), "The next page (login form) is not opened.");
+        softAssert.assertTrue(firstCard.state().isDisplayed(), "The next page (login form) is not opened.");
         String expectedTime = "00:00:00";
         softAssert.assertEquals(firstCard.getTime(), expectedTime, "Timer is not start with 00:00");
         softAssert.assertAll();

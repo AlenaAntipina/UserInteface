@@ -27,10 +27,10 @@ public class Steps {
         firstCard.clickNextButton();
     }
 
-    public void uploadAvatarChoseInterests(){
+    public void uploadAvatarChoseInterests(String path, int quantityOfInterests){
         Logger.getInstance().info("Step: upload avatar, chose interests and go to the next card");
-        secondCard.clickUploadAvatarButton();
-        secondCard.choseInterests();
+        secondCard.clickUploadAvatarButton(path);
+        secondCard.choseInterests(quantityOfInterests);
         secondCard.clickNextButton();
     }
 

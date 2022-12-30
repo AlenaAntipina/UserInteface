@@ -15,7 +15,7 @@ public class TestHelpForm extends BaseTest{
         asserts.isMainPageOpen();
 
         steps.goToTheNextPage();
-        asserts.isNextPageOpen();
+        asserts.isFirstCardOpen();
 
         steps.hideHelpForm();
         asserts.isHelpFormHide();

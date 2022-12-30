@@ -15,7 +15,7 @@ public class TestCookies extends BaseTest{
         asserts.isMainPageOpen();
 
         steps.goToTheNextPage();
-        asserts.isNextPageOpen();
+        asserts.isFirstCardOpen();
 
         steps.acceptCookies();
         asserts.isCookiesFormClosed();

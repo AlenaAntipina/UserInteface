@@ -7,14 +7,12 @@ import aquality.selenium.elements.interfaces.IComboBox;
 import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
-import utils.StringUtils;
 
 import java.util.List;
 
 public class FirstCard extends Form {
     private static final By UNIQUE_ELEMENT = By.xpath("//div[@class='login-form__container']");
     private static final String UNIQUE_ELEMENT_NAME = "Login form";
-    private final ITextBox TEXT_CARD_NUMBER = getElementFactory().getTextBox(By.xpath("//div[@class='page-indicator']"), "Number of card");
     private final ITextBox INPUT_PASSWORD = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'Password')]"), "Password");
     private final ITextBox INPUT_EMAIL = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'email')]"), "Email");
     private final ITextBox INPUT_DOMAIN = getElementFactory().getTextBox(By.xpath("//input[@placeholder='Domain']"), "Domain");
@@ -31,10 +29,6 @@ public class FirstCard extends Form {
 
     public FirstCard() {
         super(UNIQUE_ELEMENT, UNIQUE_ELEMENT_NAME);
-    }
-
-    public int getNumberOfCard(){
-        return StringUtils.getNumberOfCard(TEXT_CARD_NUMBER.getText());
     }
 
     public void inputDataInLoginForm(String password, String email, String domain){
